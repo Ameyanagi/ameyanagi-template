@@ -1,6 +1,15 @@
 [template]
 cargo_generate_version = ">=0.10.0"
 
+[placeholders.authors]
+type = "string"
+prompt = "Authors"
+
+[placeholders.email]
+type = "email"
+prompt = "Email"
+
+
 [placeholders.gh-username]
 type = "string"
 prompt = "GitHub username (or organization)"

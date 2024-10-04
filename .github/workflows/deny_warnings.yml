@@ -1,3 +1,5 @@
+#
+# Orignal code is from https://github.com/Tamschi/rust-template which is distributed under Apache License, Version 2.0 or MIT lisense
 name: Deny Warnings
 
 permissions:
@@ -14,13 +16,13 @@ jobs:
     name: Deny Warnings
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions-rs/toolchain@v1.0.7
-      with:
-        toolchain: stable
-        profile: minimal
-        components: clippy
-    - run: cat CI.toml >> Cargo.toml
-    - run: cargo clippy --workspace --locked --all-targets --no-default-features -- -D warnings
-    - run: cargo clippy --workspace --locked --all-targets -- -D warnings
-    - run: cargo clippy --workspace --locked --all-targets --all-features -- -D warnings
+      - uses: actions/checkout@v4
+      - uses: actions-rs/toolchain@v1.0.7
+        with:
+          toolchain: stable
+          profile: minimal
+          components: clippy
+      - run: cat CI.toml >> Cargo.toml
+      - run: cargo clippy --workspace --locked --all-targets --no-default-features -- -D warnings
+      - run: cargo clippy --workspace --locked --all-targets -- -D warnings
+      - run: cargo clippy --workspace --locked --all-targets --all-features -- -D warnings

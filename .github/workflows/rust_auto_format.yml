@@ -1,3 +1,4 @@
+# Orignal code is from https://github.com/Tamschi/rust-template which is distributed under Apache License, Version 2.0 or MIT lisense
 name: Rust Auto Format
 
 permissions:
@@ -5,7 +6,7 @@ permissions:
 
 on:
   push:
-    branches: [ develop ]
+    branches: [develop]
 #  # Deactivated pending further investigation into #36.
 #  pull_request:
 #    branches: [ develop ]
@@ -18,22 +19,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-      with:
-        # github.ref is useless on pull requests.
-        # github.head_ref only exists on pull requests.
-        ref: ${{ github.head_ref || github.ref }}
+      - uses: actions/checkout@v4
+        with:
+          # github.ref is useless on pull requests.
+          # github.head_ref only exists on pull requests.
+          ref: ${{ github.head_ref || github.ref }}
 
-    - uses: actions-rs/toolchain@v1.0.7
-      with:
-        toolchain: nightly
-        profile: minimal
-        components: rustfmt
-    - run: cat CI.toml >> Cargo.toml
-    - run: cargo +nightly fmt --all
+      - uses: actions-rs/toolchain@v1.0.7
+        with:
+          toolchain: nightly
+          profile: minimal
+          components: rustfmt
+      - run: cat CI.toml >> Cargo.toml
+      - run: cargo +nightly fmt --all
 
-    - uses: stefanzweifel/git-auto-commit-action@v4.16.0
-      with:
-        commit_message: Automatic formatting commit (cargo +nightly fmt)
-        file_pattern: '**/*.rs'
-        commit_author: Rust Format Action <rust-format-action@schichler.dev>
+      - uses: stefanzweifel/git-auto-commit-action@v4.16.0
+        with:
+          commit_message: Automatic formatting commit (cargo +nightly fmt)
+          file_pattern: "**/*.rs"
+          commit_author: Rust Format Action <rust-format-action@schichler.dev>

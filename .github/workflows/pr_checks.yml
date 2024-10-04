@@ -1,3 +1,4 @@
+# Orignal code is from https://github.com/Tamschi/rust-template which is distributed under Apache License, Version 2.0 or MIT lisense
 name: PR Checks
 
 permissions:
@@ -11,26 +12,26 @@ jobs:
     name: Clippy
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions-rs/toolchain@v1.0.7
-      with:
-        toolchain: nightly
-        profile: minimal
-        components: clippy
-    - run: cat CI.toml >> Cargo.toml
-    - run: cargo +nightly clippy --workspace --locked --no-default-features
-    - run: cargo +nightly clippy --workspace --locked
-    - run: cargo +nightly clippy --workspace --locked --all-features
+      - uses: actions/checkout@v4
+      - uses: actions-rs/toolchain@v1.0.7
+        with:
+          toolchain: nightly
+          profile: minimal
+          components: clippy
+      - run: cat CI.toml >> Cargo.toml
+      - run: cargo +nightly clippy --workspace --locked --no-default-features
+      - run: cargo +nightly clippy --workspace --locked
+      - run: cargo +nightly clippy --workspace --locked --all-features
 
   fmt:
     name: Formatting
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions-rs/toolchain@v1.0.7
-      with:
-        toolchain: nightly
-        profile: minimal
-        components: rustfmt
-    - run: cat CI.toml >> Cargo.toml
-    - run: cargo +nightly fmt --all -- --check
+      - uses: actions/checkout@v4
+      - uses: actions-rs/toolchain@v1.0.7
+        with:
+          toolchain: nightly
+          profile: minimal
+          components: rustfmt
+      - run: cat CI.toml >> Cargo.toml
+      - run: cargo +nightly fmt --all -- --check

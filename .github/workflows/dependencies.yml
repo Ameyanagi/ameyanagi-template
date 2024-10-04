@@ -1,3 +1,4 @@
+# Orignal code is from https://github.com/Tamschi/rust-template which is distributed under Apache License, Version 2.0 or MIT lisense
 # Lifted mostly verbatim from Bevy v0.6.0 under MIT OR Apache-2.0.
 # See <https://github.com/bevyengine/bevy/blob/458cb7a9e93dab3127bb99ce7bf8cfc3af18851d/.github/workflows/dependencies.yml>.
 
@@ -9,17 +10,17 @@ permissions:
 on:
   pull_request:
     paths:
-      - '**/Cargo.toml'
-      - 'Cargo.lock'
-      - 'deny.toml'
+      - "**/Cargo.toml"
+      - "Cargo.lock"
+      - "deny.toml"
   push:
     paths:
-      - '**/Cargo.toml'
-      - 'Cargo.lock'
-      - 'deny.toml'
-      - '.github/workflows/dependencies.yml'
+      - "**/Cargo.toml"
+      - "Cargo.lock"
+      - "deny.toml"
+      - ".github/workflows/dependencies.yml"
     branches-ignore:
-      - 'dependabot/**'
+      - "dependabot/**"
   # This used to also be scheduled, but apparently GitHub also turns it off otherwise when deactivating that due to repository inactivity.
 
 env:

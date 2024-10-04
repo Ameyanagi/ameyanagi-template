@@ -1,3 +1,4 @@
+# Orignal code is from https://github.com/Tamschi/rust-template which is distributed under Apache License, Version 2.0 or MIT lisense
 # Largely inspired by https://github.com/dtolnay/syn/blob/master/.github/workflows/ci.yml under MIT OR Apache-2.0.
 name: CI
 

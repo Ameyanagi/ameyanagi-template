@@ -1,4 +1,5 @@
-name: 'Validate Auto-Approve Dependabot'
+# Orignal code is from https://github.com/Tamschi/rust-template which is distributed under Apache License, Version 2.0 or MIT lisense
+name: "Validate Auto-Approve Dependabot"
 
 permissions:
   pull-requests: read
